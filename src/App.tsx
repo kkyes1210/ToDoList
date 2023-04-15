@@ -50,7 +50,11 @@ function App() {
       //cross board movement
       setToDos((allBoard) => {
         const sourceBoard = [...allBoard[source.droppableId]];
-        const taskObj = sourceBoard[source.index];
+        const taskObj = {
+          ...sourceBoard[source.index],
+          check: !sourceBoard[source.index].check,
+        };
+        console.log(taskObj.check);
         const destinationBoard = [...allBoard[destination.droppableId]];
         sourceBoard.splice(source.index, 1);
         destinationBoard.splice(destination?.index, 0, taskObj);

@@ -79,6 +79,11 @@ const Add = styled.div`
   width: 90%;
   margin: 0 auto;
   padding-bottom: 10px;
+  //background-color: green;
+  span {
+    float: right;
+    font-size: 0.9em;
+  }
 `;
 
 function Board({ toDos, boardId }: IBoardProps) {
@@ -91,6 +96,7 @@ function Board({ toDos, boardId }: IBoardProps) {
       const newToDo = {
         id: Date.now(),
         text: toDo,
+        check: true,
       };
       setValue("toDo", "");
       setToDos((allBoard) => {
@@ -112,6 +118,7 @@ function Board({ toDos, boardId }: IBoardProps) {
                   index={index}
                   toDoId={toDo.id}
                   toDoText={toDo.text}
+                  check={toDo.check}
                 />
               ))}
               {magic.placeholder}
@@ -121,7 +128,10 @@ function Board({ toDos, boardId }: IBoardProps) {
       </Droppable>
       {boardId === "Todo List" ? (
         <>
-          <Add>Add</Add>
+          <Add>
+            Add
+            <span>┼</span>
+          </Add>
           <Form onSubmit={handleSubmit(onValid)}>
             <Input
               {...register("toDo", { required: true })}
@@ -132,7 +142,7 @@ function Board({ toDos, boardId }: IBoardProps) {
         </>
       ) : (
         <>
-          <Add style={{ color: "#6091e8" }}>blank</Add>
+          <Add style={{ color: "#6091e8" }}>.</Add>
           <Form></Form>
         </>
       )}
