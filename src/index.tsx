@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createGlobalStyle } from "styled-components";
 import { RecoilRoot } from "recoil";
+import Today from "./Today";
+import Information from "./Infomation";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -74,7 +76,9 @@ root.render(
   <RecoilRoot>
     <React.StrictMode>
       <GlobalStyle />
+      <Today />
       <App />
+      <Information />
     </React.StrictMode>
   </RecoilRoot>
 );
