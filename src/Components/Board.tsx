@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { IToDo } from "../atom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { toDoState } from "../atom";
+import "../font.css";
 
 const Wrapper = styled.div`
   width: 20vw;
@@ -20,7 +21,6 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   //text-align: center;
-  font-weight: 600;
   padding-bottom: 10px;
   font-size: 2em;
   //background-color: white;
@@ -29,6 +29,9 @@ const Title = styled.div`
   padding-top: 10px;
   border-bottom: 2px solid black;
   //margin-bottom: 20px;
+  //font-family: "Noto Sans KR", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
 `;
 
 /* interface IAreaProps {

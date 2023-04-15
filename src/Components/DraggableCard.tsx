@@ -5,6 +5,7 @@ import React from "react";
 interface ICard {
   isDraggingOver: boolean;
   draggingFromThisWith: boolean;
+  textdeco: boolean;
 }
 
 const Right = styled.div`
@@ -17,20 +18,37 @@ const Right = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #154fb3;
 `;
 
 const Card = styled.div<ICard>`
   background-color: #6091e8;
   border: ${(props) =>
-    props.draggingFromThisWith ? "1px solid white" : "1px solid black"};
+    props.draggingFromThisWith
+      ? "1px solid white"
+      : !props.textdeco
+      ? "1px solid #A6BEE7"
+      : "1px solid black"};
   //padding: 10px 10px;
   margin-bottom: 7px;
   height: 9%;
   ${Right} {
     border-left: ${(props) =>
-      props.draggingFromThisWith ? "1px solid white" : "1px solid black"};
+      props.draggingFromThisWith
+        ? "1px solid white"
+        : !props.textdeco
+        ? "1px solid #A6BEE7"
+        : "1px solid black"};
   }
-  color: ${(props) => (props.draggingFromThisWith ? "white" : "black")};
+  color: ${(props) =>
+    props.draggingFromThisWith
+      ? "white"
+      : !props.textdeco
+      ? " #A6BEE7"
+      : " black"};
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1em;
+  font-weight: 400;
 `;
 
 const Left = styled.div<{ textdeco: boolean }>`
@@ -45,6 +63,7 @@ const Left = styled.div<{ textdeco: boolean }>`
   padding-left: 10px;
   font-size: 0.8em;
   text-decoration: ${(props) => (!props.textdeco ? "line-through" : "none")};
+  text-decoration-color: #a6bee7;
 `;
 
 interface IDraggableCardProps {
@@ -69,8 +88,9 @@ function DraggableCard({
           {...magic.dragHandleProps}
           isDraggingOver={Boolean(snapshot.draggingOver)}
           draggingFromThisWith={Boolean(snapshot.isDragging)}
+          textdeco={check}
         >
-          <Left textdeco={check}>{toDoText}</Left>
+          <Left textdeco={check}> {toDoText}</Left>
           <Right>
             <h2>{!check && "✔"}</h2>
           </Right>

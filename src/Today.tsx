@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import "./font.css";
 
 const Wrapper = styled.div`
   //background-color: red;
@@ -21,19 +22,26 @@ const TDate = styled.div`
   //background-color: yellow;
   height: 100%;
   float: left;
-  font-size: 6em;
+  font-size: 5.5em;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 500;
 `;
 
 const Day = styled.div`
   //background-color: blue;
   height: 50%;
-  font-size: 3em;
+  font-size: 2.6em;
+  font-family: "Roboto", sans-serif;
+  padding-top: 8px;
+  font-weight: 500;
 `;
 
 const Month = styled.div`
   //background-color: orange;
   height: 50%;
-  font-size: 3em;
+  font-size: 2.6em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
 `;
 
 function Today() {

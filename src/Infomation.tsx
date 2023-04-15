@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import "./font.css";
 
 const Wrapper = styled.div`
   //background-color: red;
@@ -14,7 +15,7 @@ const Wrapper = styled.div`
 const Name = styled.div`
   //background-color: yellow;
   font-size: 2.5em;
-  font-weight: 300;
+  font-weight: 400;
 `;
 
 const Info = styled.div`
@@ -26,8 +27,9 @@ const Info = styled.div`
 const Exp = styled.div`
   //background-color: blanchedalmond;
   font-size: 1.2em;
-  font-weight: 400;
+  font-weight: 500;
   padding-top: 8px;
+  font-family: "Roboto", sans-serif;
 `;
 
 function Information() {
